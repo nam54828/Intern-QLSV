@@ -3,12 +3,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:template/config/routes/route_path/app_route.dart';
 import 'package:template/core/helper/app_text.dart';
 import 'package:template/core/utils/color_resources.dart';
 import 'package:template/presentation/pages/student/add/add_page.dart';
 import 'package:template/presentation/pages/student/student_controller.dart';
-import 'package:template/presentation/pages/student/widget/delete_student.dart';
 import 'package:template/presentation/pages/student/widget/list_student.dart';
 import 'package:template/presentation/pages/student/widget/search_student.dart';
 import 'package:template/presentation/pages/student/widget/top_bar.dart';
@@ -34,7 +32,6 @@ class StudentPage extends GetView<StudentController> {
   }
 
   Widget _buildBody(BuildContext context) {
-    const String settingIcon = "assets/icons/icon_setting.svg";
     return Column(
       children: [
         Padding(
@@ -57,7 +54,7 @@ class StudentPage extends GetView<StudentController> {
                               borderRadius: BorderRadius.circular(10)),
                           child: IconButton(
                             onPressed: () {},
-                            icon: SvgPicture.asset(settingIcon),
+                            icon: SvgPicture.asset("assets/icons/icon_setting.svg"),
                           ),
                         )
                       ],
@@ -304,7 +301,7 @@ class StudentPage extends GetView<StudentController> {
             shrinkWrap: true,
             itemCount: controller.students.length,
             itemBuilder: (context, index) {
-              return StudentList(student: controller.students[index]);
+              return StudentList(student: controller.students[index], studentIndex: index,);
             },
           );
         } else if (controller.selectedButton.value == "Evaluation") {

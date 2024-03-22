@@ -8,7 +8,6 @@ import 'package:template/core/utils/color_resources.dart';
 import 'package:template/presentation/pages/subject/subject_controller.dart';
 import 'package:template/presentation/pages/subject/widgets/widget_delete_subject.dart';
 
-
 class SubjectPage extends GetView<SubjectController> {
   @override
   Widget build(BuildContext context) {

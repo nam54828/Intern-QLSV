@@ -15,16 +15,27 @@ class AddController extends GetxController{
   final studentCtrl = Get.find<StudentController>();
 
 
-
   final formKey = GlobalKey<FormState>();
   final TextEditingController fullNameController = TextEditingController();
   final TextEditingController classController = TextEditingController();
-  final TextEditingController idsvController = TextEditingController();
+  final TextEditingController idSVController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController dateOfBirthController = TextEditingController();
   final TextEditingController addressController = TextEditingController();
   final TextEditingController phoneController = TextEditingController();
   final TextEditingController averageController = TextEditingController();
+
+  void clearTextFormField(){
+    fullNameController.clear();
+    classController.clear();
+    idSVController.clear();
+    emailController.clear();
+    dateOfBirthController.clear();
+    addressController.clear();
+    phoneController.clear();
+    averageController.clear();
+  }
+
 
   ///
   /// POST API
@@ -33,13 +44,11 @@ class AddController extends GetxController{
     await _studentRepository.addStudent(
       student: student,
       onSuccess: () {
-        print('Thêm sinh viên thành công');
+        clearTextFormField();
         studentCtrl.getAllStudents();
         Get.back();
       },
-      onError: (error) {
-        print('Lỗi khi thêm sinh viên: $error');
-      },
+      onError: (_) {},
     );
   }
 
@@ -55,13 +64,11 @@ class AddController extends GetxController{
     return courses;
   }
 
-
   @override
   void onClose() {
-    // TODO: implement onClose
     fullNameController.dispose();
     classController.dispose();
-    idsvController.dispose();
+    idSVController.dispose();
     emailController.dispose();
     dateOfBirthController.dispose();
     addressController.dispose();

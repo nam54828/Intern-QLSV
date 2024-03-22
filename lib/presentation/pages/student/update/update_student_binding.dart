@@ -4,7 +4,6 @@ import 'package:template/presentation/pages/student/update/update_student_contro
 class UpdateStudentBinding extends Bindings {
   @override
   void dependencies() {
-    // TODO: implement dependencies
     Get.lazyPut(() => UpdateStudentController());
   }
 }

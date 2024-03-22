@@ -7,8 +7,8 @@ import 'package:template/presentation/pages/student/student_controller.dart';
 
 
 class DeleteStudentPage extends StatefulWidget {
-  final studentIndex;
-  const DeleteStudentPage({Key? key, this.studentIndex}) : super(key: key);
+  final int studentIndex;
+  const DeleteStudentPage({Key? key, required this.studentIndex}) : super(key: key);
 
   @override
   State<DeleteStudentPage> createState() => _DeleteStudentPageState();
@@ -46,7 +46,7 @@ class _DeleteStudentPageState extends State<DeleteStudentPage> {
                           ),),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       Row(
@@ -54,6 +54,10 @@ class _DeleteStudentPageState extends State<DeleteStudentPage> {
                         children: [
                           Container(
                             height: 30,
+                            decoration: BoxDecoration(
+                                color: ColorResources.BLUE_STUDENT,
+                                borderRadius: BorderRadius.circular(32)
+                            ),
                             child: TextButton(onPressed: (){
                               studentCtrl.deleteStudent(studentCtrl.students[widget.studentIndex].id ?? "");
                               Get.back();
@@ -65,10 +69,6 @@ class _DeleteStudentPageState extends State<DeleteStudentPage> {
                                     color: Colors.white
                                 ),),
                               ),),
-                            decoration: BoxDecoration(
-                                color: ColorResources.BLUE_STUDENT,
-                                borderRadius: BorderRadius.circular(32)
-                            ),
                           ),
                           SizedBox(width: 20,),
                           Container(

@@ -4,7 +4,6 @@ import 'package:template/presentation/pages/subject/add/add_subject_controller.d
 class AddSubjectBinding extends Bindings{
   @override
   void dependencies() {
-    // TODO: implement dependencies
     Get.lazyPut(() => AddSubjectController());
   }
 }

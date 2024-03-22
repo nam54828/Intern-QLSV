@@ -4,7 +4,6 @@ import 'package:template/presentation/pages/subject/update/update_subject_contro
 class UpdateSubjectBinding extends Bindings{
   @override
   void dependencies() {
-    // TODO: implement dependencies
     Get.lazyPut(() => UpdateSubjectController());
   }
 }

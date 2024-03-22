@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
+import 'package:template/data/model/subject/subject_model.dart';
 import 'package:template/data/repositories/subject_repository.dart';
-
-import '../../../data/model/subject/subject_model.dart';
 
 class SubjectController extends GetxController {
   RxList<SubjectModel> subjects = <SubjectModel>[].obs;

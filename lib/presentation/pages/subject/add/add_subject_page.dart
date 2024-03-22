@@ -18,8 +18,8 @@ class AddSubjectPage extends GetView<AddSubjectController> {
     );
   }
 
-  Widget _buildHeader(){
-    return  Row(
+  Widget _buildHeader() {
+    return Row(
       children: [
         Container(
           margin: const EdgeInsets.only(top: 30),
@@ -52,6 +52,7 @@ class AddSubjectPage extends GetView<AddSubjectController> {
       ],
     );
   }
+
   Widget _widgetBody(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
@@ -90,15 +91,13 @@ class AddSubjectPage extends GetView<AddSubjectController> {
                       children: [
                         Text(
                           "FullName",
-                          style:AppText.textPoppin12.copyWith(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w700
-                          ),
+                          style: AppText.textPoppin12.copyWith(
+                              color: Colors.white, fontWeight: FontWeight.w700),
                         ),
                         const SizedBox(
                           height: 10,
                         ),
-                        SubjectInput(
+                        TextFormFieldInput(
                           getWidth: double.infinity,
                           hinText: "Đỗ Đức Nam",
                           keyboardType: TextInputType.text,
@@ -122,21 +121,19 @@ class AddSubjectPage extends GetView<AddSubjectController> {
                                     "Class",
                                     style: AppText.textPoppin12.copyWith(
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w700
-                                    ),
+                                        fontWeight: FontWeight.w700),
                                     textAlign: TextAlign.start,
                                   ),
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  SubjectInput(
+                                  TextFormFieldInput(
                                     getWidth: 175,
                                     hinText: "ST20A2A",
                                     keyboardType: TextInputType.text,
                                     controller: controller.classController,
                                     onSave: (value) {
-                                      controller.classController.text =
-                                          value;
+                                      controller.classController.text = value;
                                     },
                                   ),
                                 ],
@@ -154,18 +151,18 @@ class AddSubjectPage extends GetView<AddSubjectController> {
                                     "Student ID",
                                     style: AppText.textPoppin12.copyWith(
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w700
-                                    ),
+                                        fontWeight: FontWeight.w700),
                                   ),
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  SubjectInput(
+                                  TextFormFieldInput(
                                     hinText: "54828",
                                     keyboardType: TextInputType.number,
-                                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                                    controller:
-                                        controller.studentIdController,
+                                    inputFormatters: [
+                                      FilteringTextInputFormatter.digitsOnly
+                                    ],
+                                    controller: controller.studentIdController,
                                     onSave: (value) {
                                       controller.studentIdController.text =
                                           value;
@@ -191,20 +188,18 @@ class AddSubjectPage extends GetView<AddSubjectController> {
                                     "School term",
                                     style: AppText.textPoppin12.copyWith(
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w700
-                                    ),
+                                        fontWeight: FontWeight.w700),
                                     textAlign: TextAlign.start,
                                   ),
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  SubjectInput(
+                                  TextFormFieldInput(
                                     hinText: "Term 2/2023",
                                     keyboardType: TextInputType.text,
                                     controller: controller.termController,
                                     onSave: (value) {
-                                      controller.termController.text =
-                                          value;
+                                      controller.termController.text = value;
                                     },
                                   ),
                                 ],
@@ -222,16 +217,17 @@ class AddSubjectPage extends GetView<AddSubjectController> {
                                     "Quantity of credits",
                                     style: AppText.textPoppin12.copyWith(
                                         color: Colors.white,
-                                        fontWeight: FontWeight.w700
-                                    ),
+                                        fontWeight: FontWeight.w700),
                                   ),
                                   const SizedBox(
                                     height: 10,
                                   ),
-                                  SubjectInput(
+                                  TextFormFieldInput(
                                     hinText: "3",
                                     keyboardType: TextInputType.number,
-                                    inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                                    inputFormatters: [
+                                      FilteringTextInputFormatter.digitsOnly
+                                    ],
                                     controller: controller.creditController,
                                     onSave: (value) {
                                       controller.creditController.text = value;
@@ -248,9 +244,7 @@ class AddSubjectPage extends GetView<AddSubjectController> {
                         Text(
                           "Registering status",
                           style: AppText.textPoppin12.copyWith(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700
-                          ),
+                              color: Colors.white, fontWeight: FontWeight.w700),
                         ),
                         const SizedBox(
                           height: 10,
@@ -282,22 +276,16 @@ class AddSubjectPage extends GetView<AddSubjectController> {
                             ),
                           ),
                         ),
-                        const SizedBox(
-                          height: 20
-                        ),
+                        const SizedBox(height: 20),
                         Text(
                           "List registered subjects",
                           style: AppText.textPoppin12.copyWith(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700
-                          ),
+                              color: Colors.white, fontWeight: FontWeight.w700),
                         ),
-                        const SizedBox(
-                          height: 10
-                        ),
+                        const SizedBox(height: 10),
                         Text(
                           "This student doesn't have any subject. Add one!!",
-                          style:AppText.textPoppin12.copyWith(
+                          style: AppText.textPoppin12.copyWith(
                             color: const Color.fromRGBO(255, 255, 0, 0.4),
                           ),
                         ),
@@ -308,9 +296,14 @@ class AddSubjectPage extends GetView<AddSubjectController> {
                             height: 50,
                             child: Obx(() {
                               final List<String> selectedSubjects = [];
-                              for (int i = 0; i < controller.addStudentCtr.isSelected.length; i++) {
+                              for (int i = 0;
+                                  i <
+                                      controller
+                                          .addStudentCtr.isSelected.length;
+                                  i++) {
                                 if (controller.addStudentCtr.isSelected[i]) {
-                                  selectedSubjects.add(controller.studentCtrl.subjects[i]);
+                                  selectedSubjects
+                                      .add(controller.studentCtrl.subjects[i]);
                                 }
                               }
                               return GridView.builder(
@@ -397,8 +390,9 @@ class AddSubjectPage extends GetView<AddSubjectController> {
       ),
     );
   }
-  Widget _buildPost(){
-    return  Row(
+
+  Widget _buildPost() {
+    return Row(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         Container(
@@ -415,8 +409,10 @@ class AddSubjectPage extends GetView<AddSubjectController> {
                   subjectClass: controller.classController.text,
                   creditHours: int.parse(controller.creditController.text),
                   semester: controller.termController.text,
-                  registrationStatus: controller.parseRegistrationStatus(controller.selectedRegistrationStatus),
-                  registeredCourses: controller.addStudentCtr.registeredCourses);
+                  registrationStatus: controller.parseRegistrationStatus(
+                      controller.selectedRegistrationStatus),
+                  registeredCourses:
+                      controller.addStudentCtr.registeredCourses);
               controller.addSubject(newSubject);
             },
             child: Text(

@@ -155,7 +155,7 @@ class UpdateSubjectPage extends GetView<UpdateSubjectController> {
                   const SizedBox(
                     height: 10,
                   ),
-                  SubjectInput(
+                  TextFormFieldInput(
                     hinText: "Đỗ Đức Nam",
                     controller: controller.fullNameController,
                     onSave: (value){
@@ -182,7 +182,7 @@ class UpdateSubjectPage extends GetView<UpdateSubjectController> {
                             const SizedBox(
                               height: 10,
                             ),
-                            SubjectInput(hinText: "ST20A2A",
+                            TextFormFieldInput(hinText: "ST20A2A",
                                 controller: controller.classController,
                                 onSave: (value){
                                   controller.classController.text = value;
@@ -208,7 +208,7 @@ class UpdateSubjectPage extends GetView<UpdateSubjectController> {
                             const SizedBox(
                               height: 10,
                             ),
-                            SubjectInput(hinText: "54828",
+                            TextFormFieldInput(hinText: "54828",
                                 controller: controller.studentIdController,
                                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                 onSave: (value){
@@ -240,7 +240,7 @@ class UpdateSubjectPage extends GetView<UpdateSubjectController> {
                             const SizedBox(
                               height: 10,
                             ),
-                            SubjectInput(hinText: "Term 2/2023",
+                            TextFormFieldInput(hinText: "Term 2/2023",
                                 controller: controller.termController,
                                 onSave: (value){
                                   controller.termController.text = value;
@@ -266,7 +266,7 @@ class UpdateSubjectPage extends GetView<UpdateSubjectController> {
                             const SizedBox(
                               height: 10,
                             ),
-                            SubjectInput(hinText: "3",
+                            TextFormFieldInput(hinText: "3",
                                 controller: controller.creditController,
                                 inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                                 onSave: (value){

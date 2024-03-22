@@ -39,6 +39,7 @@ class AddSubjectController extends GetxController {
     await _subjectRepository.addSubject(
         subjectModel: subjectModel,
         onSuccess: () {
+          clearTextFormField();
           subjectCtrl.getSubject();
           Get.back();
         },
@@ -56,6 +57,15 @@ class AddSubjectController extends GetxController {
       default:
         return null;
     }
+  }
+
+  void clearTextFormField(){
+    fullNameController.clear();
+    classController.clear();
+    studentIdController.clear();
+    termController.clear();
+    creditController.clear();
+    registrationController.clear();
   }
 
   @override

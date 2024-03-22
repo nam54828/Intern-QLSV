@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:template/core/helper/app_text.dart';
 
-class SubjectInput extends StatefulWidget {
+class TextFormFieldInput extends StatefulWidget {
   final String hinText;
   final TextInputType? keyboardType;
   final TextEditingController controller;
@@ -10,13 +10,13 @@ class SubjectInput extends StatefulWidget {
   final double? getWidth;
   final List<TextInputFormatter>? inputFormatters;
 
-  const SubjectInput({Key? key, required this.hinText, this.keyboardType, required this.controller, required this.onSave, this.getWidth, this.inputFormatters}) : super(key: key);
+  const TextFormFieldInput({Key? key, required this.hinText, this.keyboardType, required this.controller, required this.onSave, this.getWidth, this.inputFormatters}) : super(key: key);
 
   @override
-  State<SubjectInput> createState() => _SubjectInputState();
+  State<TextFormFieldInput> createState() => _TextFormFieldInputState();
 }
 
-class _SubjectInputState extends State<SubjectInput> {
+class _TextFormFieldInputState extends State<TextFormFieldInput> {
   @override
   Widget build(BuildContext context) {
     return Container(

@@ -1,11 +1,8 @@
 import 'package:get/get.dart';
 import 'package:get_it/get_it.dart';
+import 'package:template/data/model/student/student_model.dart';
 import 'package:template/data/repositories/student_repository.dart';
-import 'package:template/data/repositories/subject_repository.dart';
 import 'package:template/presentation/pages/subject/subject_controller.dart';
-
-import '../../../../data/model/student/student_model.dart';
-import '../subject/add/add_subject_controller.dart';
 
 class StudentController extends GetxController {
   RxList<Student> students = <Student>[].obs;
@@ -30,18 +27,18 @@ class StudentController extends GetxController {
   }
 
   void selectButton(String text) {
-    selectedButton.value = text!;
+    selectedButton.value = text;
   }
 
   ///
   /// GET API
   ///
   Future<void> getAllStudents() async {
-    await _studentRepository.getStudent(onSuccess: (data) {
-      students.assignAll(data);
-    }, onError: (dynamic error) {
-      print('Error fetching students: $error');
-    });
+    await _studentRepository.getStudent(
+        onSuccess: (data) {
+          students.assignAll(data);
+        },
+        onError: (_) {});
   }
 
   ///
@@ -51,21 +48,15 @@ class StudentController extends GetxController {
     await _studentRepository.deleteStudent(
       idStudent: idStudent,
       onSuccess: () {
-        print('Student deleted successfully');
         getAllStudents();
       },
-      onError: (error) {
-        print('Error deleting student: $error');
-      },
+      onError: (_) {},
     );
   }
 
   @override
   void onInit() {
-    print("Loading...");
-    // TODO: implement onInit
     getAllStudents();
     super.onInit();
   }
-
 }

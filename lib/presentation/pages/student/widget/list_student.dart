@@ -12,7 +12,8 @@ import 'package:template/presentation/pages/student/widget/delete_student.dart';
 
 class StudentList extends StatelessWidget {
   final Student student;
-  const StudentList({Key? key, required this.student}) : super(key: key);
+  final int studentIndex;
+  const StudentList({Key? key, required this.student, required this.studentIndex}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -72,7 +73,7 @@ class StudentList extends StatelessWidget {
                               },
                               icon: SvgPicture.asset(
                                   'assets/icons/edit_icon.svg')),
-                          DeleteStudentPage(studentIndex: student)
+                          DeleteStudentPage(studentIndex: studentIndex)
                         ],
                       ),
                     )
@@ -93,7 +94,7 @@ class StudentList extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5)),
             child: Center(
               child: Text(
-               student.averageScore.toString(),
+               "${student.averageScore}",
                 style: GoogleFonts.poppins(
                     fontWeight: FontWeight.w700,
                     fontSize: 8,
